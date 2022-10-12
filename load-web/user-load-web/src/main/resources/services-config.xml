@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <zk-host username="" password="">localhost:2181</zk-host>
+    <remote-load package="${classpath}/com/dawdler/user/load/load-config.xml"></remote-load><!-- 远端加载类模版的配置文件-->
+</config>

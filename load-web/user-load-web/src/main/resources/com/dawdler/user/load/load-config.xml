@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hosts>
+	<host name="user">
+		<package>com.dawdler.user.controller</package>
+	</host>
+	<host name="core">
+		<package>com.dawdler.core.interceptor</package>
+	</host>
+</hosts>
