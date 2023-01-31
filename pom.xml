@@ -6,32 +6,12 @@
 	<packaging>pom</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<dawdler.build.version>0.17.1-jdk17-RELEASES</dawdler.build.version>
+		<dawdler.build.version>0.0.2-RELEASES</dawdler.build.version>
 		<project.version>0.0.1-SNAPSHOT</project.version>
 	</properties>
 	
 	<dependencyManagement>
 	<dependencies>
-	<dependency>
-			<groupId>dawdler</groupId>
-			<artifactId>dawdler-server-plug</artifactId>
-			<version>${dawdler.build.version}</version>
-	</dependency>
-	<dependency>
-			<groupId>dawdler</groupId>
-			<artifactId>dawdler-client-plug</artifactId>
-			<version>${dawdler.build.version}</version>
-	</dependency>
-	<dependency>
-			<groupId>dawdler</groupId>
-			<artifactId>dawdler-core</artifactId>
-			<version>${dawdler.build.version}</version>
-	</dependency>
-	<dependency>
-			<groupId>dawdler</groupId>
-			<artifactId>dawdler-load-bean</artifactId>
-			<version>${dawdler.build.version}</version>
-	</dependency>
 	<dependency>
 			<groupId>dawdler-train</groupId>
 			<artifactId>user-api</artifactId>

@@ -3,7 +3,7 @@ package com.dawdler.user.entity;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    /** 用户id */
+    /** userid */
     private Integer userid;
 
     /** 昵称 */

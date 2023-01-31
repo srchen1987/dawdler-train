@@ -25,6 +25,10 @@
 			<groupId>dawdler</groupId>
 			<artifactId>dawdler-client-plug-config</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>dawdler</groupId>
+			<artifactId>dawdler-client-plug-discovery-center-zookeeper</artifactId>
+		</dependency>
   </dependencies>
   <dependencyManagement>
 		<dependencies>
@@ -50,11 +54,11 @@
 							<addClasspath>true</addClasspath>
 						</manifest>
 					</archive>
-					<webResources>
+					<!--<webResources>
 						<resource>
 							<directory>src/main/resources</directory>
 						</resource>
-					</webResources>
+					</webResources>-->
 				</configuration>
 			</plugin>
 		</plugins>

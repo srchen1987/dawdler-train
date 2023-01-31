@@ -10,10 +10,10 @@ public interface UserMapper {
      * 
      * @Title deleteByPrimaryKey
      * @Description 删除[用户表]
-     * @Copyright	dawdler 	2022-10-11
+     * @Copyright	dawdler 	2023-1-28
      * <p> Company: dawdler  </p>
      * @author srchen
-     * @date 2022年10月11日 下午9:52:52
+     * @date 2023年1月28日 上午11:15:42
      * @version 1.0
      * @param userid	userid
      */
@@ -23,10 +23,10 @@ public interface UserMapper {
      * 
      * @Title insert
      * @Description 插入[用户表]
-     * @Copyright	dawdler 	2022-10-11
+     * @Copyright	dawdler 	2023-1-28
      * <p> Company: dawdler  </p>
      * @author srchen
-     * @date 2022年10月11日 下午9:52:52
+     * @date 2023年1月28日 上午11:15:42
      * @version 1.0
      * @param row
      */
@@ -36,10 +36,10 @@ public interface UserMapper {
      * 
      * @Title insertSelective
      * @Description 插入[用户表]
-     * @Copyright	dawdler 	2022-10-11
+     * @Copyright	dawdler 	2023-1-28
      * <p> Company: dawdler  </p>
      * @author srchen
-     * @date 2022年10月11日 下午9:52:52
+     * @date 2023年1月28日 上午11:15:42
      * @version 1.0
      * @param row
      */
@@ -49,10 +49,10 @@ public interface UserMapper {
      * 
      * @Title selectByPrimaryKey
      * @Description 查询[用户表]
-     * @Copyright	dawdler 	2022-10-11
+     * @Copyright	dawdler 	2023-1-28
      * <p> Company: dawdler  </p>
      * @author srchen
-     * @date 2022年10月11日 下午9:52:52
+     * @date 2023年1月28日 上午11:15:42
      * @version 1.0
      * @param userid	userid
      */
@@ -62,10 +62,10 @@ public interface UserMapper {
      * 
      * @Title updateByPrimaryKeySelective
      * @Description 更新[用户表]
-     * @Copyright	dawdler 	2022-10-11
+     * @Copyright	dawdler 	2023-1-28
      * <p> Company: dawdler  </p>
      * @author srchen
-     * @date 2022年10月11日 下午9:52:52
+     * @date 2023年1月28日 上午11:15:42
      * @version 1.0
      * @param row
      */
@@ -75,10 +75,10 @@ public interface UserMapper {
      * 
      * @Title updateByPrimaryKey
      * @Description 更新[用户表]
-     * @Copyright	dawdler 	2022-10-11
+     * @Copyright	dawdler 	2023-1-28
      * <p> Company: dawdler  </p>
      * @author srchen
-     * @date 2022年10月11日 下午9:52:52
+     * @date 2023年1月28日 上午11:15:42
      * @version 1.0
      * @param row
      */
@@ -88,10 +88,10 @@ public interface UserMapper {
      * 
      * @Title selectPageListCount
      * @Description 查询[用户表]
-     * @Copyright	dawdler 	2022-10-11
+     * @Copyright	dawdler 	2023-1-28
      * <p> Company: dawdler  </p>
      * @author srchen
-     * @date 2022年10月11日 下午9:52:52
+     * @date 2023年1月28日 上午11:15:42
      * @version 1.0
      * @param user
      */
@@ -101,10 +101,10 @@ public interface UserMapper {
      * 
      * @Title selectPageList
      * @Description 查询[用户表]列表
-     * @Copyright	dawdler 	2022-10-11
+     * @Copyright	dawdler 	2023-1-28
      * <p> Company: dawdler  </p>
      * @author srchen
-     * @date 2022年10月11日 下午9:52:52
+     * @date 2023年1月28日 上午11:15:42
      * @version 1.0
      * @param user
      * @param page

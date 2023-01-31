@@ -1,9 +1,8 @@
 package com.dawdler.user.service;
 
 import com.anywide.dawdler.core.annotation.RemoteService;
-import com.anywide.dawdler.serverplug.load.bean.Page;
 import com.dawdler.user.entity.User;
-import java.util.List;
+import java.util.Map;
 
 @RemoteService("user-service")
 public interface UserService {
@@ -11,10 +10,10 @@ public interface UserService {
      * 
      * @Title selectByPrimaryKey
      * @Description 查询[用户表]
-     * @Copyright	dawdler 	2022-10-11
+     * @Copyright	dawdler 	2023-1-28
      * <p> Company: dawdler  </p>
      * @author srchen
-     * @date 2022年10月11日 下午9:52:52
+     * @date 2023年1月28日 上午11:15:42
      * @version 1.0
      * @param userid	userid
      */
@@ -24,24 +23,25 @@ public interface UserService {
      * 
      * @Title selectPageList
      * @Description 查询[用户表]列表
-     * @Copyright	dawdler 	2022-10-11
+     * @Copyright	dawdler 	2023-1-28
      * <p> Company: dawdler  </p>
      * @author srchen
-     * @date 2022年10月11日 下午9:52:52
+     * @date 2023年1月28日 上午11:15:42
      * @version 1.0
      * @param user
-     * @param page
+     * @param pageOn
+     * @param row
      */
-    List<User> selectPageList(User user, Page page);
+    Map<String, Object> selectPageList(User user, Integer pageOn, Integer row);
 
     /** 
      * 
      * @Title updateByPrimaryKeySelective
      * @Description 更新[用户表]
-     * @Copyright	dawdler 	2022-10-11
+     * @Copyright	dawdler 	2023-1-28
      * <p> Company: dawdler  </p>
      * @author srchen
-     * @date 2022年10月11日 下午9:52:52
+     * @date 2023年1月28日 上午11:15:42
      * @version 1.0
      * @param user
      */
@@ -51,10 +51,10 @@ public interface UserService {
      * 
      * @Title insertSelective
      * @Description 插入[用户表]
-     * @Copyright	dawdler 	2022-10-11
+     * @Copyright	dawdler 	2023-1-28
      * <p> Company: dawdler  </p>
      * @author srchen
-     * @date 2022年10月11日 下午9:52:52
+     * @date 2023年1月28日 上午11:15:42
      * @version 1.0
      * @param user
      */
@@ -64,10 +64,10 @@ public interface UserService {
      * 
      * @Title deleteByPrimaryKey
      * @Description 删除[用户表]
-     * @Copyright	dawdler 	2022-10-11
+     * @Copyright	dawdler 	2023-1-28
      * <p> Company: dawdler  </p>
      * @author srchen
-     * @date 2022年10月11日 下午9:52:52
+     * @date 2023年1月28日 上午11:15:42
      * @version 1.0
      * @param userid	userid
      */

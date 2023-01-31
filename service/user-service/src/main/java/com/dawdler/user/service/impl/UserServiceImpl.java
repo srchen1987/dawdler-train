@@ -7,7 +7,9 @@ import com.anywide.dawdler.serverplug.load.bean.Page;
 import com.dawdler.user.dao.UserMapper;
 import com.dawdler.user.entity.User;
 import com.dawdler.user.service.UserService;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class UserServiceImpl implements UserService {
     @Repository
@@ -21,11 +23,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @DBTransaction(mode=MODE.readOnly)
-    public List<User> selectPageList(User user, Page page) {
+    public Map<String, Object> selectPageList(User user, Integer pageOn, Integer row) {
         int rowCount = userMapper.selectPageListCount(user);
+        Page page = new Page(pageOn, row);
         page.setRowCountAndCompute(rowCount);
         List<User> userList = userMapper.selectPageList(user, page);
-        return userList;
+        Map<String, Object> result = new HashMap<>();
+        result.put("page", page);
+        result.put("userList", userList);
+        return result;
     }
 
     @Override

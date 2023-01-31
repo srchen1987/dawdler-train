@@ -12,10 +12,12 @@
 			<groupId>dawdler</groupId>
 			<artifactId>dawdler-core</artifactId>
 			<scope>provided</scope>
+			<version>${dawdler.build.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>dawdler</groupId>
 			<artifactId>dawdler-load-bean</artifactId>
+			<version>${dawdler.build.version}</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>

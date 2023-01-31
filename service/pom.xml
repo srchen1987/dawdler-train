@@ -7,8 +7,11 @@
 	</parent>
 	<artifactId>service</artifactId>
 	<packaging>pom</packaging>
-	
 	<dependencies>
+		<dependency>
+			<groupId>dawdler</groupId>
+			<artifactId>dawdler-load-bean</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>dawdler</groupId>
 			<artifactId>dawdler-server-plug-mybatis</artifactId>
@@ -23,11 +26,15 @@
 		</dependency>
 		<dependency>
 			<groupId>dawdler</groupId>
-			<artifactId>dawdler-load-bean</artifactId>
+			<artifactId>dawdler-server-plug-redis</artifactId>
 		</dependency>
 		<dependency>
-				<groupId>dawdler</groupId>
-				<artifactId>dawdler-server-plug-config</artifactId>
+			<groupId>dawdler</groupId>
+			<artifactId>dawdler-server-plug-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>dawdler</groupId>
+			<artifactId>dawdler-server-plug-discovery-center-zookeeper</artifactId>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
@@ -41,7 +48,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-		<build>
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
