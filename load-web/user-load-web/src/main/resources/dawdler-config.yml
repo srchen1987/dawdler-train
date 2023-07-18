@@ -5,7 +5,7 @@ consul:
  token: 
  wait-time: 10
  watch-keys: 
- - /zookeeper
+ - /
  #TLSConfig:
   #keyStoreInstanceType: JKS, JCEKS, PKCS12, PKCS11, DKS
   #certificatePath:

@@ -26,11 +26,11 @@
 		</dependency>
 		<dependency>
 			<groupId>dawdler</groupId>
-			<artifactId>dawdler-server-plug-config</artifactId>
+			<artifactId>dawdler-server-plug-config-center-consul</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>dawdler</groupId>
-			<artifactId>dawdler-server-plug-discovery-center-zookeeper</artifactId>
+			<artifactId>dawdler-server-plug-discovery-center-consul</artifactId>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
