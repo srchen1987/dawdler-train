@@ -5,10 +5,10 @@
 	<property name="maxHistory" value="30" />
 	<appender name="DEBUG"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${log_dir}/debug_server.log</file>
+		<file>${log_dir}/debug_service.log</file>
 		<rollingPolicy
 			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-			<fileNamePattern>${log_dir}/%d{yyyy-MM-dd,aux}/debug_server.%d{yyyy-MM-dd_HH}.%i.log
+			<fileNamePattern>${log_dir}/%d{yyyy-MM-dd,aux}/debug_service.%d{yyyy-MM-dd_HH}.%i.log
 			</fileNamePattern>
 			<maxFileSize>5MB</maxFileSize>
 			<maxHistory>30</maxHistory>
@@ -26,10 +26,10 @@
 	</appender>
 	<appender name="INFO"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${log_dir}/info_server.log</file>
+		<file>${log_dir}/info_service.log</file>
 		<rollingPolicy
 			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-			<fileNamePattern>${log_dir}/%d{yyyy-MM-dd,aux}/info_server.%d{yyyy-MM-dd_HH}.%i.log
+			<fileNamePattern>${log_dir}/%d{yyyy-MM-dd,aux}/info_service.%d{yyyy-MM-dd_HH}.%i.log
 			</fileNamePattern>
 			<maxFileSize>5MB</maxFileSize>
 			<maxHistory>30</maxHistory>
@@ -49,10 +49,10 @@
 
 	<appender name="WARN"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${log_dir}/warn_server.log</file>
+		<file>${log_dir}/warn_service.log</file>
 		<rollingPolicy
 			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-			<fileNamePattern>${log_dir}/%d{yyyy-MM-dd,aux}/warn_server.%d{yyyy-MM-dd_HH}.%i.log
+			<fileNamePattern>${log_dir}/%d{yyyy-MM-dd,aux}/warn_service.%d{yyyy-MM-dd_HH}.%i.log
 			</fileNamePattern>
 			<maxFileSize>5MB</maxFileSize>
 			<maxHistory>30</maxHistory>
@@ -70,10 +70,10 @@
 	</appender>
 	<appender name="ERROR"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${log_dir}/error_server.log</file>
+		<file>${log_dir}/error_service.log</file>
 		<rollingPolicy
 			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-			<fileNamePattern>${log_dir}/%d{yyyy-MM-dd,aux}/error_server.%d{yyyy-MM-dd_HH}.%i.log
+			<fileNamePattern>${log_dir}/%d{yyyy-MM-dd,aux}/error_service.%d{yyyy-MM-dd_HH}.%i.log
 			</fileNamePattern>
 			<maxFileSize>5MB</maxFileSize>
 			<maxHistory>30</maxHistory>
