@@ -26,15 +26,19 @@
 		</dependency>
 		<dependency>
 			<groupId>dawdler</groupId>
-			<artifactId>dawdler-server-plug-redis</artifactId>
+			<artifactId>dawdler-server-plug-config-center-consul</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>dawdler</groupId>
-			<artifactId>dawdler-server-plug-config</artifactId>
+			<artifactId>dawdler-server-plug-discovery-center-consul</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>dawdler</groupId>
-			<artifactId>dawdler-server-plug-discovery-center-zookeeper</artifactId>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>

@@ -1,0 +1,1588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dawdler.user.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.dawdler.user.entity.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="ug_id" jdbcType="INTEGER" property="ugId" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, ug_id, nick_name, mobile, password
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user (user_id, ug_id, nick_name, 
+      mobile, password)
+    values (#{userId,jdbcType=INTEGER}, #{ugId,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="ugId != null">
+        ug_id,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="ugId != null">
+        #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    <set>
+      <if test="ugId != null">
+        ug_id = #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    set ug_id = #{ugId,jdbcType=INTEGER},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <select id="selectPageListCount" parameterType="com.dawdler.user.entity.User" resultType="int">
+    select count(1) from shop_user
+    <where>
+      <if test="userId != null">
+         and user_id = #{userId,jdbcType=INTEGER}
+      </if>
+      <if test="ugId != null">
+         and ug_id = #{ugId,jdbcType=INTEGER}
+      </if>
+      <if test="nickName != null">
+         and nick_name = #{nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="mobile != null">
+         and mobile = #{mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="password != null">
+         and password = #{password,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <select id="selectPageList" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    <where>
+      <if test="user.userId != null">
+         and user_id = #{user.userId,jdbcType=INTEGER}
+      </if>
+      <if test="user.ugId != null">
+         and ug_id = #{user.ugId,jdbcType=INTEGER}
+      </if>
+      <if test="user.nickName != null">
+         and nick_name = #{user.nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="user.mobile != null">
+         and mobile = #{user.mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="user.password != null">
+         and password = #{user.password,jdbcType=VARCHAR}
+      </if>
+    </where>
+     limit #{page.start},#{page.row}
+  </select>
+  <resultMap id="BaseResultMap" type="com.dawdler.user.entity.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="ug_id" jdbcType="INTEGER" property="ugId" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, ug_id, nick_name, mobile, password
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user (user_id, ug_id, nick_name, 
+      mobile, password)
+    values (#{userId,jdbcType=INTEGER}, #{ugId,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="ugId != null">
+        ug_id,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="ugId != null">
+        #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    <set>
+      <if test="ugId != null">
+        ug_id = #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    set ug_id = #{ugId,jdbcType=INTEGER},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <select id="selectPageListCount" parameterType="com.dawdler.user.entity.User" resultType="int">
+    select count(1) from shop_user
+    <where>
+      <if test="userId != null">
+         and user_id = #{userId,jdbcType=INTEGER}
+      </if>
+      <if test="ugId != null">
+         and ug_id = #{ugId,jdbcType=INTEGER}
+      </if>
+      <if test="nickName != null">
+         and nick_name = #{nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="mobile != null">
+         and mobile = #{mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="password != null">
+         and password = #{password,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <select id="selectPageList" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    <where>
+      <if test="user.userId != null">
+         and user_id = #{user.userId,jdbcType=INTEGER}
+      </if>
+      <if test="user.ugId != null">
+         and ug_id = #{user.ugId,jdbcType=INTEGER}
+      </if>
+      <if test="user.nickName != null">
+         and nick_name = #{user.nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="user.mobile != null">
+         and mobile = #{user.mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="user.password != null">
+         and password = #{user.password,jdbcType=VARCHAR}
+      </if>
+    </where>
+     limit #{page.start},#{page.row}
+  </select>
+  <resultMap id="BaseResultMap" type="com.dawdler.user.entity.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="ug_id" jdbcType="INTEGER" property="ugId" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, ug_id, nick_name, mobile, password
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user (user_id, ug_id, nick_name, 
+      mobile, password)
+    values (#{userId,jdbcType=INTEGER}, #{ugId,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="ugId != null">
+        ug_id,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="ugId != null">
+        #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    <set>
+      <if test="ugId != null">
+        ug_id = #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    set ug_id = #{ugId,jdbcType=INTEGER},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <select id="selectPageListCount" parameterType="com.dawdler.user.entity.User" resultType="int">
+    select count(1) from shop_user
+    <where>
+      <if test="userId != null">
+         and user_id = #{userId,jdbcType=INTEGER}
+      </if>
+      <if test="ugId != null">
+         and ug_id = #{ugId,jdbcType=INTEGER}
+      </if>
+      <if test="nickName != null">
+         and nick_name = #{nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="mobile != null">
+         and mobile = #{mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="password != null">
+         and password = #{password,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <select id="selectPageList" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    <where>
+      <if test="user.userId != null">
+         and user_id = #{user.userId,jdbcType=INTEGER}
+      </if>
+      <if test="user.ugId != null">
+         and ug_id = #{user.ugId,jdbcType=INTEGER}
+      </if>
+      <if test="user.nickName != null">
+         and nick_name = #{user.nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="user.mobile != null">
+         and mobile = #{user.mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="user.password != null">
+         and password = #{user.password,jdbcType=VARCHAR}
+      </if>
+    </where>
+     limit #{page.start},#{page.row}
+  </select>
+  <resultMap id="BaseResultMap" type="com.dawdler.user.entity.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="ug_id" jdbcType="INTEGER" property="ugId" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, ug_id, nick_name, mobile, password
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user (user_id, ug_id, nick_name, 
+      mobile, password)
+    values (#{userId,jdbcType=INTEGER}, #{ugId,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="ugId != null">
+        ug_id,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="ugId != null">
+        #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    <set>
+      <if test="ugId != null">
+        ug_id = #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    set ug_id = #{ugId,jdbcType=INTEGER},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <select id="selectPageListCount" parameterType="com.dawdler.user.entity.User" resultType="int">
+    select count(1) from shop_user
+    <where>
+      <if test="userId != null">
+         and user_id = #{userId,jdbcType=INTEGER}
+      </if>
+      <if test="ugId != null">
+         and ug_id = #{ugId,jdbcType=INTEGER}
+      </if>
+      <if test="nickName != null">
+         and nick_name = #{nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="mobile != null">
+         and mobile = #{mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="password != null">
+         and password = #{password,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <select id="selectPageList" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    <where>
+      <if test="user.userId != null">
+         and user_id = #{user.userId,jdbcType=INTEGER}
+      </if>
+      <if test="user.ugId != null">
+         and ug_id = #{user.ugId,jdbcType=INTEGER}
+      </if>
+      <if test="user.nickName != null">
+         and nick_name = #{user.nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="user.mobile != null">
+         and mobile = #{user.mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="user.password != null">
+         and password = #{user.password,jdbcType=VARCHAR}
+      </if>
+    </where>
+     limit #{page.start},#{page.row}
+  </select>
+  <resultMap id="BaseResultMap" type="com.dawdler.user.entity.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="ug_id" jdbcType="INTEGER" property="ugId" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, ug_id, nick_name, mobile, password
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user (user_id, ug_id, nick_name, 
+      mobile, password)
+    values (#{userId,jdbcType=INTEGER}, #{ugId,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="ugId != null">
+        ug_id,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="ugId != null">
+        #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    <set>
+      <if test="ugId != null">
+        ug_id = #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    set ug_id = #{ugId,jdbcType=INTEGER},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <select id="selectPageListCount" parameterType="com.dawdler.user.entity.User" resultType="int">
+    select count(1) from shop_user
+    <where>
+      <if test="userId != null">
+         and user_id = #{userId,jdbcType=INTEGER}
+      </if>
+      <if test="ugId != null">
+         and ug_id = #{ugId,jdbcType=INTEGER}
+      </if>
+      <if test="nickName != null">
+         and nick_name = #{nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="mobile != null">
+         and mobile = #{mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="password != null">
+         and password = #{password,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <select id="selectPageList" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    <where>
+      <if test="user.userId != null">
+         and user_id = #{user.userId,jdbcType=INTEGER}
+      </if>
+      <if test="user.ugId != null">
+         and ug_id = #{user.ugId,jdbcType=INTEGER}
+      </if>
+      <if test="user.nickName != null">
+         and nick_name = #{user.nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="user.mobile != null">
+         and mobile = #{user.mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="user.password != null">
+         and password = #{user.password,jdbcType=VARCHAR}
+      </if>
+    </where>
+     limit #{page.start},#{page.row}
+  </select>
+  <resultMap id="BaseResultMap" type="com.dawdler.user.entity.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="ug_id" jdbcType="INTEGER" property="ugId" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, ug_id, nick_name, mobile, password
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user (user_id, ug_id, nick_name, 
+      mobile, password)
+    values (#{userId,jdbcType=INTEGER}, #{ugId,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="ugId != null">
+        ug_id,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="ugId != null">
+        #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    <set>
+      <if test="ugId != null">
+        ug_id = #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    set ug_id = #{ugId,jdbcType=INTEGER},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <select id="selectPageListCount" parameterType="com.dawdler.user.entity.User" resultType="int">
+    select count(1) from shop_user
+    <where>
+      <if test="userId != null">
+         and user_id = #{userId,jdbcType=INTEGER}
+      </if>
+      <if test="ugId != null">
+         and ug_id = #{ugId,jdbcType=INTEGER}
+      </if>
+      <if test="nickName != null">
+         and nick_name = #{nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="mobile != null">
+         and mobile = #{mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="password != null">
+         and password = #{password,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <select id="selectPageList" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    <where>
+      <if test="user.userId != null">
+         and user_id = #{user.userId,jdbcType=INTEGER}
+      </if>
+      <if test="user.ugId != null">
+         and ug_id = #{user.ugId,jdbcType=INTEGER}
+      </if>
+      <if test="user.nickName != null">
+         and nick_name = #{user.nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="user.mobile != null">
+         and mobile = #{user.mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="user.password != null">
+         and password = #{user.password,jdbcType=VARCHAR}
+      </if>
+    </where>
+     limit #{page.start},#{page.row}
+  </select>
+  <resultMap id="BaseResultMap" type="com.dawdler.user.entity.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="ug_id" jdbcType="INTEGER" property="ugId" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, ug_id, nick_name, mobile, password
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user (user_id, ug_id, nick_name, 
+      mobile, password)
+    values (#{userId,jdbcType=INTEGER}, #{ugId,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="ugId != null">
+        ug_id,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="ugId != null">
+        #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    <set>
+      <if test="ugId != null">
+        ug_id = #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    set ug_id = #{ugId,jdbcType=INTEGER},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <select id="selectPageListCount" parameterType="com.dawdler.user.entity.User" resultType="int">
+    select count(1) from shop_user
+    <where>
+      <if test="userId != null">
+         and user_id = #{userId,jdbcType=INTEGER}
+      </if>
+      <if test="ugId != null">
+         and ug_id = #{ugId,jdbcType=INTEGER}
+      </if>
+      <if test="nickName != null">
+         and nick_name = #{nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="mobile != null">
+         and mobile = #{mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="password != null">
+         and password = #{password,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <select id="selectPageList" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    <where>
+      <if test="user.userId != null">
+         and user_id = #{user.userId,jdbcType=INTEGER}
+      </if>
+      <if test="user.ugId != null">
+         and ug_id = #{user.ugId,jdbcType=INTEGER}
+      </if>
+      <if test="user.nickName != null">
+         and nick_name = #{user.nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="user.mobile != null">
+         and mobile = #{user.mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="user.password != null">
+         and password = #{user.password,jdbcType=VARCHAR}
+      </if>
+    </where>
+     limit #{page.start},#{page.row}
+  </select>
+  <resultMap id="BaseResultMap" type="com.dawdler.user.entity.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="ug_id" jdbcType="INTEGER" property="ugId" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, ug_id, nick_name, mobile, password
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user (user_id, ug_id, nick_name, 
+      mobile, password)
+    values (#{userId,jdbcType=INTEGER}, #{ugId,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="ugId != null">
+        ug_id,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="ugId != null">
+        #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    <set>
+      <if test="ugId != null">
+        ug_id = #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    set ug_id = #{ugId,jdbcType=INTEGER},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <select id="selectPageListCount" parameterType="com.dawdler.user.entity.User" resultType="int">
+    select count(1) from shop_user
+    <where>
+      <if test="userId != null">
+         and user_id = #{userId,jdbcType=INTEGER}
+      </if>
+      <if test="ugId != null">
+         and ug_id = #{ugId,jdbcType=INTEGER}
+      </if>
+      <if test="nickName != null">
+         and nick_name = #{nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="mobile != null">
+         and mobile = #{mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="password != null">
+         and password = #{password,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <select id="selectPageList" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    <where>
+      <if test="user.userId != null">
+         and user_id = #{user.userId,jdbcType=INTEGER}
+      </if>
+      <if test="user.ugId != null">
+         and ug_id = #{user.ugId,jdbcType=INTEGER}
+      </if>
+      <if test="user.nickName != null">
+         and nick_name = #{user.nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="user.mobile != null">
+         and mobile = #{user.mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="user.password != null">
+         and password = #{user.password,jdbcType=VARCHAR}
+      </if>
+    </where>
+     limit #{page.start},#{page.row}
+  </select>
+  <resultMap id="BaseResultMap" type="com.dawdler.user.entity.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="ug_id" jdbcType="INTEGER" property="ugId" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, ug_id, nick_name, mobile, password
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user (user_id, ug_id, nick_name, 
+      mobile, password)
+    values (#{userId,jdbcType=INTEGER}, #{ugId,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="ugId != null">
+        ug_id,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="ugId != null">
+        #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    <set>
+      <if test="ugId != null">
+        ug_id = #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    set ug_id = #{ugId,jdbcType=INTEGER},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <select id="selectPageListCount" parameterType="com.dawdler.user.entity.User" resultType="int">
+    select count(1) from shop_user
+    <where>
+      <if test="userId != null">
+         and user_id = #{userId,jdbcType=INTEGER}
+      </if>
+      <if test="ugId != null">
+         and ug_id = #{ugId,jdbcType=INTEGER}
+      </if>
+      <if test="nickName != null">
+         and nick_name = #{nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="mobile != null">
+         and mobile = #{mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="password != null">
+         and password = #{password,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <select id="selectPageList" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    <where>
+      <if test="user.userId != null">
+         and user_id = #{user.userId,jdbcType=INTEGER}
+      </if>
+      <if test="user.ugId != null">
+         and ug_id = #{user.ugId,jdbcType=INTEGER}
+      </if>
+      <if test="user.nickName != null">
+         and nick_name = #{user.nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="user.mobile != null">
+         and mobile = #{user.mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="user.password != null">
+         and password = #{user.password,jdbcType=VARCHAR}
+      </if>
+    </where>
+     limit #{page.start},#{page.row}
+  </select>
+  <resultMap id="BaseResultMap" type="com.dawdler.user.entity.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="ug_id" jdbcType="INTEGER" property="ugId" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, ug_id, nick_name, mobile, password
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user (user_id, ug_id, nick_name, 
+      mobile, password)
+    values (#{userId,jdbcType=INTEGER}, #{ugId,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="ugId != null">
+        ug_id,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="ugId != null">
+        #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    <set>
+      <if test="ugId != null">
+        ug_id = #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    set ug_id = #{ugId,jdbcType=INTEGER},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <select id="selectPageListCount" parameterType="com.dawdler.user.entity.User" resultType="int">
+    select count(1) from shop_user
+    <where>
+      <if test="userId != null">
+         and user_id = #{userId,jdbcType=INTEGER}
+      </if>
+      <if test="ugId != null">
+         and ug_id = #{ugId,jdbcType=INTEGER}
+      </if>
+      <if test="nickName != null">
+         and nick_name = #{nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="mobile != null">
+         and mobile = #{mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="password != null">
+         and password = #{password,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <select id="selectPageList" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    <where>
+      <if test="user.userId != null">
+         and user_id = #{user.userId,jdbcType=INTEGER}
+      </if>
+      <if test="user.ugId != null">
+         and ug_id = #{user.ugId,jdbcType=INTEGER}
+      </if>
+      <if test="user.nickName != null">
+         and nick_name = #{user.nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="user.mobile != null">
+         and mobile = #{user.mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="user.password != null">
+         and password = #{user.password,jdbcType=VARCHAR}
+      </if>
+    </where>
+     limit #{page.start},#{page.row}
+  </select>
+  <resultMap id="BaseResultMap" type="com.dawdler.user.entity.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="ug_id" jdbcType="INTEGER" property="ugId" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, ug_id, nick_name, mobile, password
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user (user_id, ug_id, nick_name, 
+      mobile, password)
+    values (#{userId,jdbcType=INTEGER}, #{ugId,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="ugId != null">
+        ug_id,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="ugId != null">
+        #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    <set>
+      <if test="ugId != null">
+        ug_id = #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    set ug_id = #{ugId,jdbcType=INTEGER},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <select id="selectPageListCount" parameterType="com.dawdler.user.entity.User" resultType="int">
+    select count(1) from shop_user
+    <where>
+      <if test="userId != null">
+         and user_id = #{userId,jdbcType=INTEGER}
+      </if>
+      <if test="ugId != null">
+         and ug_id = #{ugId,jdbcType=INTEGER}
+      </if>
+      <if test="nickName != null">
+         and nick_name = #{nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="mobile != null">
+         and mobile = #{mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="password != null">
+         and password = #{password,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <select id="selectPageList" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    <where>
+      <if test="user.userId != null">
+         and user_id = #{user.userId,jdbcType=INTEGER}
+      </if>
+      <if test="user.ugId != null">
+         and ug_id = #{user.ugId,jdbcType=INTEGER}
+      </if>
+      <if test="user.nickName != null">
+         and nick_name = #{user.nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="user.mobile != null">
+         and mobile = #{user.mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="user.password != null">
+         and password = #{user.password,jdbcType=VARCHAR}
+      </if>
+    </where>
+     limit #{page.start},#{page.row}
+  </select>
+  <resultMap id="BaseResultMap" type="com.dawdler.user.entity.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="ug_id" jdbcType="INTEGER" property="ugId" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, ug_id, nick_name, mobile, password
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shop_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user (user_id, ug_id, nick_name, 
+      mobile, password)
+    values (#{userId,jdbcType=INTEGER}, #{ugId,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dawdler.user.entity.User">
+    insert into shop_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="ugId != null">
+        ug_id,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="ugId != null">
+        #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    <set>
+      <if test="ugId != null">
+        ug_id = #{ugId,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dawdler.user.entity.User">
+    update shop_user
+    set ug_id = #{ugId,jdbcType=INTEGER},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <select id="selectPageListCount" parameterType="com.dawdler.user.entity.User" resultType="int">
+    select count(1) from shop_user
+    <where>
+      <if test="userId != null">
+         and user_id = #{userId,jdbcType=INTEGER}
+      </if>
+      <if test="ugId != null">
+         and ug_id = #{ugId,jdbcType=INTEGER}
+      </if>
+      <if test="nickName != null">
+         and nick_name = #{nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="mobile != null">
+         and mobile = #{mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="password != null">
+         and password = #{password,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <select id="selectPageList" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_user
+    <where>
+      <if test="user.userId != null">
+         and user_id = #{user.userId,jdbcType=INTEGER}
+      </if>
+      <if test="user.ugId != null">
+         and ug_id = #{user.ugId,jdbcType=INTEGER}
+      </if>
+      <if test="user.nickName != null">
+         and nick_name = #{user.nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="user.mobile != null">
+         and mobile = #{user.mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="user.password != null">
+         and password = #{user.password,jdbcType=VARCHAR}
+      </if>
+    </where>
+     limit #{page.start},#{page.row}
+  </select>
+</mapper>

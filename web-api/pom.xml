@@ -23,11 +23,11 @@
 		</dependency>
 		<dependency>
 			<groupId>dawdler</groupId>
-			<artifactId>dawdler-client-plug-config</artifactId>
+			<artifactId>dawdler-client-plug-config-center-consul</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>dawdler</groupId>
-			<artifactId>dawdler-client-plug-discovery-center-zookeeper</artifactId>
+			<artifactId>dawdler-client-plug-discovery-center-consul</artifactId>
 		</dependency>
   </dependencies>
   <dependencyManagement>
@@ -49,11 +49,6 @@
 				<version>3.3.2</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-						</manifest>
-					</archive>
 					<!--<webResources>
 						<resource>
 							<directory>src/main/resources</directory>
